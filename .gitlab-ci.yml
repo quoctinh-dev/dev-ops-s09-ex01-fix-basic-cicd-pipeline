@@ -1,0 +1,13 @@
+image: gradle:8.11.1-jdk17
+
+stages:
+  - build_app
+
+variables:
+  GRADLE_OPTS: "-Dorg.gradle.daemon=false"
+
+build_job:
+  stage: build_app
+  script:
+    - chmod +x gradlew
+    - ./gradlew clean build -x test
